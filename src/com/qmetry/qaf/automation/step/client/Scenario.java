@@ -272,11 +272,22 @@ public class Scenario extends WebDriverTestCase
 		return timeOut;
 	}
 	public boolean isM_isAlwaysRun() {
-		return !metadata.containsKey("alwaysRun") || (Boolean) metadata.get("alwaysRun");// m_isAlwaysRun;
+		boolean alwaysRun = false;
+		if (metadata.containsKey("alwaysRun"){ 
+			//Needs call to parseBoolean to fix failed cast from string to boolean
+			alwaysRun = Boolean.parseBoolean(metadata.get("alwaysRun"));
+		}
+		return alwaysRun ;
 	}
 
 	public boolean isM_enabled() {
-		return !metadata.containsKey("enabled") || (Boolean) metadata.get("enabled");// m_enabled;
+		boolean isEnabled = false;
+		if (metadata.containsKey("enabled"){ 
+			//Needs call to parseBoolean to fix failed cast from String to boolean
+			isEnabled = Boolean.parseBoolean(metadata.get("enabled"));
+		}
+		return isEnabled ;
+		
 	}
 
 	protected void beforeScanario() {
